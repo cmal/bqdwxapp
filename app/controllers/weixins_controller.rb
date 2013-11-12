@@ -1,6 +1,6 @@
 class WeixinsController < ApplicationController
 	skip_before_filter :verify_authenticity_token
-	#before_filter :check_weixin_legality
+	before_filter :check_weixin_legality
 	def show
 		render :text=> params[:echostr]
 	end
@@ -14,7 +14,7 @@ class WeixinsController < ApplicationController
 	
 	def check_weixin_legality
 	        #logger.debug params[:timestamp]
-		array =["testtoken",params[:timestamp],params[:nonce]].sort
+		array =["9c49b86f2d18b762983d9d76b257a257",params[:timestamp],params[:nonce]].sort
 		render :text => "Forbidden",:status => 403 if params[:signature]!=Digest::SHA1.hexdigest(array.join)
 	end
 end
