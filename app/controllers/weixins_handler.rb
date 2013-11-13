@@ -1,6 +1,10 @@
 class WeixinsHandler < Object
-  def initialize(content)
-    content
+  def new(content)
+    @content = content
+  end
+
+  def ret
+    @content
   end
 end
 
