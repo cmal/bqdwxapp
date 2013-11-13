@@ -11,7 +11,7 @@ class WeixinsController < ApplicationController
 			render "echo",:format=>:xml
 		end
 	end
-	
+
 	def check_weixin_legality
 	        #logger.debug params[:timestamp]
 		array =["9c49b86f2d18b762983d9d76b257a257",params[:timestamp],params[:nonce]].sort
