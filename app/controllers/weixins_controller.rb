@@ -8,10 +8,10 @@ class WeixinsController < ApplicationController
 	
 	def create
 		#logger.debug "text:#{params[:xml]}"
-		if params[:xml][:MsgType]=="text"
-      @return_content = Object.const_get("Weixins#{params[:xml][:MsgType].capitalize}Handler").new(params[:xml][:Content]).return
-			render "echo",:format=>:xml
-		end
+		#if params[:xml][:MsgType]=="text"
+    @return_content = WeixinsHandler.const_get("Weixins#{params[:xml][:MsgType].capitalize}Handler").new(params[:xml][:Content]).return
+		render "echo",:format=>:xml
+		#end
 	end
 
 	def check_weixin_legality
@@ -21,26 +21,3 @@ class WeixinsController < ApplicationController
 	end
 end
 
-class WeixinsHandler < Object
-  def new(content)
-    content
-  end
-end
-
-class WeixinsTextHandler < WeixinsHandler
-end
-
-class WeixinsImageHandler < WeixinsHandler
-end
-
-class WeixinsVoiceHandler < WeixinsHandler
-end
-
-class WeixinsVideoHandler < WeixinsHandler
-end
-
-class WeixinsMusicHandler < WeixinsHandler
-end
-
-class WeixinsNewsHandler < WeixinsHandler
-end
