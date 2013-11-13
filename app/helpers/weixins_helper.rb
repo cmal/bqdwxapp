@@ -1,5 +1,5 @@
 module WeixinsHelper
   def say(content)
-    "大山的回声: " + content
+    "计财部的回声: " + content
   end
 end
