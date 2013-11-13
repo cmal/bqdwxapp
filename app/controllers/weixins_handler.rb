@@ -1,5 +1,5 @@
 class WeixinsHandler < Object
-  def new(content)
+  def initialize(content)
     content
   end
 end
