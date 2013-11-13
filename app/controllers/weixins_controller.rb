@@ -2,8 +2,8 @@ class WeixinsController < ApplicationController
 	skip_before_filter :verify_authenticity_token
 	#before_filter :check_weixin_legality
 	def show
-		#render :text=> params[:echostr]
-    render "echo", :format=>:xml
+		render :text=> params[:echostr]
+    #render "echo",:format=>:xml
 	end
 	
 	def create
