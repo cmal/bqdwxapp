@@ -4,7 +4,7 @@ class WeixinsHandler < Object
   end
 
   def return
-    @content
+    @content = "请选择关键词：shibor,"
   end
 end
 
