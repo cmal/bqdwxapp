@@ -4,7 +4,7 @@ class WeixinsHandler < Object
   end
 
   def return
-    @content = "请选择关键词：shibor,"
+    "请选择关键词：shibor,"
   end
 end
 
@@ -14,13 +14,14 @@ class WeixinsTextHandler < WeixinsHandler
              }
   def return
     if valid_command?
-      send commands[command][:method]
+      send commands[@content][:method]
+      @content
     else
       super
     end
   end
   def valid_command?
-    commands.has_key? command
+    commands.has_key? @content
   end
   def query_shibor
     @content = "http://www.shibor.org/shibor/web/html/shibor.html"
