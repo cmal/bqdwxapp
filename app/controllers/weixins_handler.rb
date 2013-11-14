@@ -9,12 +9,12 @@ class WeixinsHandler < Object
 end
 
 class WeixinsTextHandler < WeixinsHandler
-  commands = {"shibor" => {:method => :query_shibor},
+  Commands = {"shibor" => {:method => :query_shibor},
               "Shibor" => {:method => :query_shibor}
              }
   def return
     if valid_command?
-      send commands[@content][:method]
+      send Commands[@content][:method]
     else
       @result = "请选择关键词：shibor,"
     end
