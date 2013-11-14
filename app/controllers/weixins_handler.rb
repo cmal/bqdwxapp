@@ -21,7 +21,7 @@ class WeixinsTextHandler < WeixinsHandler
     super
   end
   def valid_command?
-    commands.has_key? @content
+    Commands.has_key? @content
   end
   def query_shibor
     @result = "http://www.shibor.org/shibor/web/html/shibor.html"
