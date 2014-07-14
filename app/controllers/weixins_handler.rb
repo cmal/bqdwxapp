@@ -7,6 +7,11 @@ class WeixinsHandler < Object
     @result
   end
 end
+
+class WeixinsLinkHandler < WeixinsHandler
+  
+end
+
 class WeixinsImageHandler < WeixinsHandler
 end
 
