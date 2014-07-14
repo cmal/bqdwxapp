@@ -6,8 +6,8 @@ class WeixinsController < ApplicationController
   end
   
   def create
-    #@return_type = 
-    @return_content = WeixinsHandler.const_get("Weixins#{params[:xml][:MsgType].capitalize}Handler").new(params[:xml][:Content]).return
+    @content = WeixinsHandler.const_get("Weixins#{params[:xml][:MsgType].capitalize}Handler").new(params[:xml][:Content]).return
+    @return_content = "<Content><![CDATA[@content]]></Content>"
     render "#{params[:xml][:MsgType].downcase}", :format=>:xml
   end
 
